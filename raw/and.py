@@ -13,10 +13,14 @@ class Perceptron(object):
 		self.B = .0
 
 	def __str__(self):
-		return 'weights\t:%s\nbias\t%f' % (self.W, self.B)
+		return 'weights\t:%s\nbias\t:%f' % (self.W, self.B)
 
 	def predict(self, input_vec):
-		return self.activator(reduce(lambda a, b: a+b, map(lambda(x, w): x*w, zip(input_vec, self.W)), .0) + self.B)
+		return self.activator(
+			reduce(lambda a, b: a+b, 
+				map(lambda(x, w): x*w, 
+					zip(input_vec, self.W))) 
+			+ self.B)
 
 	def train(self, input_vecs, labels, epochs, rate):
 		for i in range(epochs):
@@ -34,7 +38,9 @@ class Perceptron(object):
 
 	def _update_weights(self, input_vec, output, label, rate):
 		delta = label-output
-		self.W = map(lambda(x, w): w+rate*delta*x, zip(input_vec, self.W))
+		self.W = map(
+			lambda(x, w): w+rate*delta*x, 
+			zip(input_vec, self.W))
 		self.B += rate*delta
 
 def f(x):
