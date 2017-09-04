@@ -13,7 +13,7 @@ class Perceptron(object):
 		self.B = .0
 
 	def __str__(self):
-		return 'weights\t:%s\nbias\t:%f' % (self.W, self.B)
+		return 'weights:%s\tbias:%f' % (self.W, self.B)
 
 	def predict(self, input_vec):
 		return self.activator(
