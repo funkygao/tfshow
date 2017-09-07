@@ -3,9 +3,12 @@
 
 import mnist_loader
 import numpy as np
+import time
+import os
 
 train_data, _, _ = mnist_loader.load_data_wrapper()
-for n in range(1000):
+for n in range(len(train_data)):
+    os.system('clear')
     sample = train_data[n][0].reshape(28, 28)
     for y in range(28):
         for x in range(28):
@@ -14,4 +17,6 @@ for n in range(1000):
             else:
                 print '.',
         print
-    print np.argmax(train_data[n][1])
+    #print np.argmax(train_data[n][1])
+    print n+1
+    time.sleep(0.1)
