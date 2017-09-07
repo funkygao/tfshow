@@ -17,10 +17,7 @@ class Perceptron(object):
 
 	def predict(self, input_vec):
 		return self.activator(
-			reduce(lambda a, b: a+b, 
-				map(lambda(x, w): x*w, 
-					zip(input_vec, self.W))) 
-			+ self.B)
+			np.dot(self.W, input_vec)+self.B)
 
 	def train(self, input_vecs, labels, epochs, rate):
 		for i in range(epochs):
