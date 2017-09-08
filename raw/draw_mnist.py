@@ -7,8 +7,10 @@ import matplotlib.pyplot as plt
 import time
 import os
 
+#===============
 # Configurations
-enable_matplot = True
+#===============
+enable_matplot = False
 
 if enable_matplot:
     plt.ion()
